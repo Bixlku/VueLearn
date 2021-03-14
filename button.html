@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <div id="app">
+        <p v-html="content"></p>
+        <p v-text="content"></p>
+        <input type="button" value="单击简写测试" @click="methodtest">
+        <input type="button" value="双击测试" @dblclick="methodtest">
+        <p></p>
+        <button @click="decrease">-</button>
+        {{num}}
+        <input type="button" value="+" @click="add">
+
+    </div>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                content:"<a href='http://www.baidu.com'>百度网址</a>",
+                debug:"西兰花",
+                num:0
+            },
+            methods:{
+                methodtest:function(){
+                    alert("测试");
+                },
+                add:function(){
+                    // console.log(this.debug);
+                    if(this.num<10){
+                        this.num+=1;
+                    }else{
+                        alert("不要点啦");
+                    }
+                },
+                decrease:function(){
+                    if(this.num>=1){
+                        this.num-=1;
+                    }else{
+                        alert("不要减啦");
+                    }
+                    
+                }
+
+            }
+
+        })
+    </script>
+</body>
+</html>
